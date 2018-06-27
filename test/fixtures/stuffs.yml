@@ -2,9 +2,9 @@
 
 one:
   name: MyString
-  sub-name: MyString
-  sub-name2: MyString
-  description: MyString
+  sub_name1: MyString
+  sub_name2: MyString
+  description1: MyString
   description2: MyString
   description3: MyString
   user_id: 1
@@ -12,9 +12,9 @@ one:
 
 two:
   name: MyString
-  sub-name: MyString
-  sub-name2: MyString
-  description: MyString
+  sub_name1: MyString
+  sub_name2: MyString
+  description1: MyString
   description2: MyString
   description3: MyString
   user_id: 1
