@@ -1,0 +1,57 @@
+<%= form_with(model: stuff, local: true) do |form| %>
+  <% if stuff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stuff.errors.count, "error") %> prohibited this stuff from being saved:</h2>
+
+      <ul>
+      <% stuff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :stuff_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub-name %>
+    <%= form.text_field :sub-name, id: :stuff_sub-name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub-name2 %>
+    <%= form.text_field :sub-name2, id: :stuff_sub-name2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :stuff_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description2 %>
+    <%= form.text_field :description2, id: :stuff_description2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description3 %>
+    <%= form.text_field :description3, id: :stuff_description3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :stuff_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :stuff_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
