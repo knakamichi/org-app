@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stuffs</h1>
+<h1>物品一覧</h1>
+
+<p>選択してください</p>
+
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <!-- <th>Name</th> -->
       <th>Sub name1</th>
       <th>Sub name2</th>
       <th>Description1</th>
@@ -20,7 +23,7 @@
   <tbody>
     <% @stuffs.each do |stuff| %>
       <tr>
-        <td><%= stuff.name %></td>
+        <!-- <td><%= stuff.name %></td> -->
         <td><%= stuff.sub_name1 %></td>
         <td><%= stuff.sub_name2 %></td>
         <td><%= stuff.description1 %></td>

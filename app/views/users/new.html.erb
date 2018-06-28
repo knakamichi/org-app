@@ -1,24 +1,71 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>新規登録</title>
+  </head>
+  <body>
+    <header>
+      <p>東京大学ゆみの会</p>
+      <a href="#" class="modification">変更</a>
+      <a href="#" class="list">一覧</a>
+    </header>
+    <div class="main">
+      <% provide(:title, '新規登録') %>
+      <div class="main_title">
+        <h1>新規登録</h1>
+      </div>
+      <div class="container">
+        <%= form_for(@user, url: signup_path) do |f| %>
+        <%= render 'shared/error_messages' %>
+          <tr class="field">
+            <%= f.label :name, "名前：" %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </tr>
+          <br>
+          <tr class="field">
+            <%= f.label :grade, "期：" %>
+            <td>
+              <input type="radio" name="grade" value="1st">20期
+              <input type="radio" name="grade" value="2nd">19期
+              <input type="radio" name="grade" value="3rd">18期
+              <input type="radio" name="grade" value="4th">17期
+              <input type="radio" name="grade" value="obog">16期以上
+            </td>
+          </tr>
+          <br>
+          <tr class="field">
+            <%= f.label :email, "メールアドレス:" %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </tr>
+          <br>
+          <tr class="field">
+            <%= f.label :password, "パスワード：" %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </tr>
+          <br>
+          <tr class="field">
+            <%= f.label :password_confirmation, "パスワード確認: " %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </tr>
 
-<div class="row">
+          <%= f.submit "新規登録", class: "btn btn-primary" %>
+          <%= f.submit "ログインに戻る", class: "btn btn-primary" %>
+        <% end %>
+        <br>
+      </div>
+    </div>
+    <footer>
+      <a href="#">お問い合わせ</a>
+    </footer>
+  </body>
+</html>
+
+
+
+
+<!-- <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user, url: signup_path) do |f| %>
-      <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
   </div>
-</div>
+</div> -->
