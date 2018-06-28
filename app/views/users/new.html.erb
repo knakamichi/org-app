@@ -5,11 +5,6 @@
     <title>新規登録</title>
   </head>
   <body>
-    <header>
-      <p>東京大学ゆみの会</p>
-      <a href="#" class="modification">変更</a>
-      <a href="#" class="list">一覧</a>
-    </header>
     <div class="main">
       <% provide(:title, '新規登録') %>
       <div class="main_title">
@@ -26,11 +21,12 @@
           <tr class="field">
             <%= f.label :grade, "期：" %>
             <td>
-              <input type="radio" name="grade" value="1st">期
+              <!-- <input type="radio" name="grade" value="1st">期
               <input type="radio" name="grade" value="2nd">19期
               <input type="radio" name="grade" value="3rd">18期
               <input type="radio" name="grade" value="4th">17期
-              <input type="radio" name="grade" value="obog">16期以上
+              <input type="radio" name="grade" value="obog">16期以上 -->
+              <%= f.number_field :grade, class: 'form-control' %>
             </td>
           </tr>
           <br>
