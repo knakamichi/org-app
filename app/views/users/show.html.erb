@@ -7,6 +7,9 @@
   <div class="col-md-8">
     <% if @user.stuffs.any? %>
       <h3>個人所有物一覧 (<%= @user.stuffs.count %>)</h3>
+      <div class="menu index">
+        <%= link_to "一覧", stuffs_path %>
+      </div>
       <ol class="stuffs">
         <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
         <%= render @stuffs %>

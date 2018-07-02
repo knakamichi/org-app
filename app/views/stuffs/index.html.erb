@@ -31,9 +31,8 @@
         <td><%= stuff.description3 %></td>
         <td><%= stuff.user_id %></td>
         <td><%= stuff.image %></td>
-        <td><%= link_to 'Show', stuff %></td>
-        <td><%= link_to 'Edit', edit_stuff_path(stuff) %></td>
-        <td><%= link_to 'Destroy', stuff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '情報変更', edit_stuff_path(stuff) %></td>
+        <td><%= link_to '全体リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
