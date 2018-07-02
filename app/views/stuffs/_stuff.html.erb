@@ -1,16 +1,14 @@
+
+  <!-- creates vertical table -->
 <div class="main">
   <table border="1">
-    <% @stuffs.each do |stuff| %>
-      <li id="stuff-<%= stuff.id %>">
-        <tr><td class="td1">分類</td><td class="td2"><%= stuff.name %></td></tr>
-        <tr><td>名前</td><td><%= stuff.sub_name1 %></td></tr>
-        <tr><td>名前２</td><td><%= stuff.sub_name2 %></td></tr>
-        <tr><td>道具の説明１</td><td><%= stuff.description1 %></td></tr>
-        <tr><td>道具の説明２</td><td><%= stuff.description2 %></td></tr>
-        <tr><td>道具の説明３</td><td><%= stuff.description3 %></td></tr>
-        <tr><td>使用者</td><td><%= stuff.description4 %></td></tr>
-        <tr><td>画像</td><td><%= stuff.image %></td></tr>
-      </li>
-    <% end %>
+      <tr><td class="td1">分類</td><td class="td2"><%= stuff.name %></td></tr>
+      <tr><td>名前</td><td><%= stuff.sub_name1 %></td></tr>
+      <tr><td>名前２</td><td><%= stuff.sub_name2 %></td></tr>
+      <tr><td>道具の説明１</td><td><%= stuff.description1 %></td></tr>
+      <tr><td>道具の説明２</td><td><%= stuff.description2 %></td></tr>
+      <tr><td>道具の説明３</td><td><%= stuff.description3 %></td></tr>
+      <tr><td>使用者</td><td><%= stuff.description4 %></td></tr>
+      <tr><td>画像</td><td><%= stuff.image %></td></tr>
   </table>
 </div>

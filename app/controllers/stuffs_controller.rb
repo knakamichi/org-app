@@ -9,6 +9,9 @@ class StuffsController < ApplicationController
 
   # GET /stuffs/1
   # GET /stuffs/1.json
+  def show
+    @stuff=Stuff.find(params[:user_id])
+  end
 
   # GET /stuffs/new
   # def new
