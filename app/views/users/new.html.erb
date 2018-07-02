@@ -11,7 +11,7 @@
       </div>
       <div class="container">
         <%= form_for(@user, url: signup_path) do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/error_messages', object: f.object %>
           <tr class="field">
             <%= f.label :name, "名前：" %>
             <%= f.text_field :name, class: 'form-control' %>
@@ -40,7 +40,7 @@
           </tr>
           <br>
           <tr class="field">
-            <%= f.label :password_confirmation, "パスワード確認: " %>
+            <%= f.label :password_confirmation, "パスワード確認： " %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </tr>
 

@@ -11,11 +11,10 @@ class StuffsController < ApplicationController
   # GET /stuffs/1.json
 
   # GET /stuffs/new
-  def new
-    @stuff = Stuff.new
-  end
+  # def new
+  #   @stuff = Stuff.new
+  # end
 
-  # GET /stuffs/1/edit
   def edit
   end
 
@@ -23,13 +22,12 @@ class StuffsController < ApplicationController
   # POST /stuffs.json
   def create
     @stuff = Stuff.new(stuff_params)
-
     respond_to do |format|
       if @stuff.save
-        format.html { redirect_to @stuff, notice: '道具を追加しました' }
-        format.json { render :show, status: :created, location: @stuff }
+        flash[:success] = "道具を追加しました。"
+        redirect_to current_user
       else
-        format.html { render :new }
+        render 'static_pages/home'
         format.json { render json: @stuff.errors, status: :unprocessable_entity }
       end
     end
@@ -40,8 +38,8 @@ class StuffsController < ApplicationController
   def update
     respond_to do |format|
       if @stuff.update(stuff_params)
-        format.html { redirect_to @stuff, notice: '道具情報を更新しました' }
-        format.json { render :show, status: :ok, location: @stuff }
+        format.html { redirect_to current_user, notice: '道具情報を更新しました' }
+        # format.json { render :show, status: :ok, location: @stuff }
       else
         format.html { render :edit }
         format.json { render json: @stuff.errors, status: :unprocessable_entity }
@@ -67,6 +65,6 @@ class StuffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stuff_params
-      params.require(:stuff).permit(:name, :sub_name1, :sub_name2, :description1, :description2, :description3, :user_id, :image)
+      params.require(:stuff).permit(:name, :sub_name1, :sub_name2, :description1, :description2, :description3, :description4, :user_id, :image)
     end
 end
