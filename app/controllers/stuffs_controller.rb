@@ -9,8 +9,6 @@ class StuffsController < ApplicationController
 
   # GET /stuffs/1
   # GET /stuffs/1.json
-  def show
-  end
 
   # GET /stuffs/new
   def new
@@ -28,7 +26,7 @@ class StuffsController < ApplicationController
 
     respond_to do |format|
       if @stuff.save
-        format.html { redirect_to @stuff, notice: 'Stuff was successfully created.' }
+        format.html { redirect_to @stuff, notice: '道具を追加しました' }
         format.json { render :show, status: :created, location: @stuff }
       else
         format.html { render :new }
@@ -42,7 +40,7 @@ class StuffsController < ApplicationController
   def update
     respond_to do |format|
       if @stuff.update(stuff_params)
-        format.html { redirect_to @stuff, notice: 'Stuff was successfully updated.' }
+        format.html { redirect_to @stuff, notice: '道具情報を更新しました' }
         format.json { render :show, status: :ok, location: @stuff }
       else
         format.html { render :edit }

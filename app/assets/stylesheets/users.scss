@@ -1,3 +1,65 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  height:90px;
+  margin-top:15px;
+  color:#ffa500;
+  border-bottom:5px solid #dcdcdc;
+}
+.user-info{
+  //background-color:#f0e68c;
+  font-size:50px;
+  color:#ffa500;
+  padding-top:15px;
+  padding-left:25px;
+  border-radius:10px;
+  float:left;
+  }
+.menu{
+  background-color:#f0e68c;
+  font-size:20px;
+  color:#ffa500;
+  padding:15px 20px 10px 20px;
+  margin-top:35px;
+  margin-right:5px;
+  border-radius:10px;
+  float: right;
+  text-decoration: none;
+}
+table{
+  background-color:#afeeee;
+  border:solid 1px black;
+  font-size:25px;
+  width:80%;
+  height:65%;
+  table-layout:fixed;
+  margin:0 auto;
+  margin-top:80px;
+  text-align:center;
+  border-collapse:collapse;
+  td{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+}
+
+.td1{
+  width:30%;
+}
+.td2{
+  //width:60%;
+}
+.footer a{
+  background-color:#228b22;
+  font-size:20px;
+  color:#ffffff;
+  text-align:right;
+  padding:10px 10px 5px 10px;
+  border-radius:10px;
+  float:right;
+  position:absolute;
+  bottom:0px;
+  right:1%;
+  text-decoration:none;
+}

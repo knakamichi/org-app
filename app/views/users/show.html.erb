@@ -7,8 +7,9 @@
   </aside>
   <div class="col-md-8">
     <% if @user.stuffs.any? %>
-      <h3>Stuffs (<%= @user.stuffs.count %>)</h3>
+      <h3>個人所有物一覧 (<%= @user.stuffs.count %>)</h3>
       <ol class="stuffs">
+        <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
         <%= render @stuffs %>
       </ol>
       <%= will_paginate @stuffs %>
