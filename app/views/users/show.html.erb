@@ -9,6 +9,9 @@
       <div class="menu index">
         <%= link_to "道具一覧", stuffs_path %>
       </div>
+      <div class="menu new-stuff">
+        <%= link_to '道具を追加する', new_stuff_path %>
+      </div>
       <% if @user.stuffs.any? %>
         <ol class="stuffs">
           <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
@@ -17,9 +20,6 @@
         <%= will_paginate @stuffs %>
     <%else%>
       <p>使用している道具はありません</p>
-      <div class="menu new-stuff">
-        <%= link_to '道具を追加する', new_stuff_path %>
-      </div>
     <% end %>
   </div>
 </div>
