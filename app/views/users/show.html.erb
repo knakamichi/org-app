@@ -5,16 +5,21 @@
     </section>
   </aside> -->
   <div class="col-md-8">
-    <% if @user.stuffs.any? %>
-      <h3>個人所有物一覧 (<%= @user.stuffs.count %>)</h3>
+      <h3>使用道具一覧 (<%= @user.stuffs.count %>)</h3>
       <div class="menu index">
-        <%= link_to "一覧", stuffs_path %>
+        <%= link_to "道具一覧", stuffs_path %>
       </div>
-      <ol class="stuffs">
-        <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
-        <%= render @stuffs %>
-      </ol>
-      <%= will_paginate @stuffs %>
+      <% if @user.stuffs.any? %>
+        <ol class="stuffs">
+          <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
+          <%= render @stuffs %>
+        </ol>
+        <%= will_paginate @stuffs %>
+    <%else%>
+      <p>使用している道具はありません</p>
+      <div class="menu new-stuff">
+        <%= link_to '道具を追加する', new_stuff_path %>
+      </div>
     <% end %>
   </div>
 </div>

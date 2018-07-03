@@ -1,11 +1,75 @@
 <p id="notice"><%= notice %></p>
 
-<h1>物品一覧</h1>
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "ヘルプ", help_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "個人ページ", root_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              アカウント <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "設定", "#" %></li>
+              <li>
+                <%= link_to "ログアウト", logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<p>選択してください</p>
+
+<h1>団体所有道具一覧</h1>
+<script type="text/javascript" src="Yumi_List.js"></script>
+<h2>絞り込み検索</h2>
+<th>
+    <select id="sampleSelect" onChange="goFilter();">
+      <option value="all">全て</option>
+      <option value="bow">弓</option>
+      <option value="arrow">矢</option>
+      <option value="gasshuku">合宿関係</option>
+    </select>
+</th>
+<div class="menu new-stuff">
+  <%= link_to 'リストに道具を追加する', new_stuff_path %>
+</div>
+<table id="sampleTable" border="1">
+  <tr class="colTitle">
+    <!-- <th>
+        <select id="sampleSelect" onChange="goFilter();">
+          <option value="all">全て</option>
+          <option value="nami">並</option>
+          <option value="nobi">伸</option>
+        </select>
+    </th>
+    <th>
+        <select id="sampleSelect" onChange="goFilter();">
+          <option value="all">全て</option>
+          <option value="9">9kg</option>
+          <option value="10">10kg</option>
+          <option value="11">11kg</option>
+          <option value="12">12kg</option>
+          <option value="13">13kg</option>
+        </select>
+    </th> -->
+  </tr>
+      <!-- <tr nami><td>1</td><td>弓1</td><td>並</td><td>11</td></tr>
+      <tr bow nobi 12><td>2</td><td>弓2</td><td>伸</td><td>12</td></tr>
+      <tr bow nami 11><td>3</td><td>弓3</td><td>並</td><td>11</td></tr>
+      <tr bow nami 10><td>4</td><td>弓4</td><td>並</td><td>10</td></tr>
+      <tr bow nami 13><td>5</td><td>弓5</td><td>伸</td><td>13</td></tr>
+      <tr bow nami 9><td>6</td><td>弓6</td><td>並</td><td>9</td></tr>
+      <tr bow nobi 13><td>7</td><td>弓7</td><td>伸</td><td>13</td></tr>
+      <tr bow nami 12><td>8</td><td>弓8</td><td>並</td><td>12</td></tr>
+</table> -->
 
 
-<table>
   <thead>
     <tr>
       <th>分類</th>
@@ -31,13 +95,9 @@
         <td><%= stuff.description3 %></td>
         <td><%= stuff.user_id %></td>
         <td><%= stuff.image %></td>
-        <td><%= link_to '情報変更', edit_stuff_path(stuff) %></td>
-        <td><%= link_to '全体リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td id="change"><%= link_to '情報変更', edit_stuff_path(stuff) %></td>
+        <td id="destroy"><%= link_to '全体リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to '道具を追加する', new_stuff_path %>

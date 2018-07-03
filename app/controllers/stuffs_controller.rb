@@ -8,25 +8,36 @@ class StuffsController < ApplicationController
   end
 
   # GET /stuffs/new
-  # def new
-  #   @stuff = Stuff.new
-  # end
+  def new
+    @stuff = Stuff.new
+  end
 
   def edit
   end
 
   # POST /stuffs
   # POST /stuffs.json
+  # def create
+  #   @stuff = Stuff.new(stuff_params)
+  #   respond_to do |format|
+  #     if @stuff.save
+  #       flash[:success] = "道具を追加しました。"
+  #       redirect_to current_user
+  #     else
+  #       render 'static_pages/home'
+  #       format.json { render json: @stuff.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
   def create
-    @stuff = Stuff.new(stuff_params)
-    respond_to do |format|
-      if @stuff.save
-        flash[:success] = "道具を追加しました。"
-        redirect_to current_user
-      else
-        render 'static_pages/home'
-        format.json { render json: @stuff.errors, status: :unprocessable_entity }
-      end
+    @stuff = current_user.stuffs.build(stuff_params)
+    if @stuff.save
+      flash[:success] = "道具を追加しました。"
+      redirect_to current_user
+    else
+      render 'static_pages/home'
+      format.json { render json: @stuff.errors, status: :unprocessable_entity }
     end
   end
 
