@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  has_many :stuffs, dependent: :destroy
+  has_many :stuffs, :through => :ownerships, dependent: :destroy
+
+  has_many :active_ownership, class_name: "Ownership", foreign_key: "owner_id", dependent: :destroy
+  has_many :stuff_of_owner, through: :passive_ownerships, source: :stuff
+
   before_save { email.downcase! } # = self.email=email.downcase
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -13,5 +17,20 @@ class User < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+    # declares usage of stuff.
+  def own(stuff)
+    owning << stuff
+  end
+
+  # undeclares usage of stuff
+  def disown(stuff)
+    owning.delete(stuff)
+  end
+
+  # Returns true if the current user is using the stuff.
+  def owning?(stuff)
+    owning.include?(stuff)
   end
 end

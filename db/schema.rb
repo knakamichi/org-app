@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629070535) do
+ActiveRecord::Schema.define(version: 20180704052716) do
+
+  create_table "ownerships", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "stuff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id", "stuff_id"], name: "index_ownerships_on_owner_id_and_stuff_id", unique: true
+    t.index ["owner_id"], name: "index_ownerships_on_owner_id"
+    t.index ["stuff_id"], name: "index_ownerships_on_stuff_id"
+  end
 
   create_table "stuffs", force: :cascade do |t|
     t.string "name"
@@ -19,12 +29,11 @@ ActiveRecord::Schema.define(version: 20180629070535) do
     t.string "description1"
     t.string "description2"
     t.string "description3"
-    t.integer "user_id"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description4"
-    t.index ["user_id", "created_at"], name: "index_stuffs_on_user_id_and_created_at"
+    t.index ["created_at"], name: "index_stuffs_on_user_id_and_created_at"
   end
 
   create_table "users", force: :cascade do |t|
