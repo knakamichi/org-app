@@ -7,11 +7,15 @@ class CreateStuffs < ActiveRecord::Migration[5.1]
       t.string :description1
       t.string :description2
       t.string :description3
-      t.integer :user_id
+      t.string :description4
       t.string :image
-
-      t.timestamps
     end
-    add_index :stuffs, [:user_id, :created_at]
+    add_index :stuffs, :name
+    add_index :stuffs, :sub_name1
+    add_index :stuffs, :sub_name2
+    add_index :stuffs, :description1
+    add_index :stuffs, :description2
+    add_index :stuffs, :description3
+    add_index :stuffs, :description4
   end
 end

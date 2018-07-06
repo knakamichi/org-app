@@ -13,5 +13,11 @@ Rails.application.routes.draw do
       get :owning
     end
   end
-  resources :stuffs
+  resources :stuffs do
+    member do
+      get :owners
+    end
+  end
+  resources :ownerships,       only: [:create, :destroy]
+
 end

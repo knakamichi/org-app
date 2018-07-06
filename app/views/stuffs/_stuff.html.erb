@@ -14,7 +14,7 @@
   </table>
 </div>
 <div class="menu destroy">
-  <%= link_to 'リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <%= link_to 'リストから削除', current_user.ownership.find_by(:current_user_id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 </div>
 <div class="menu change">
   <%= link_to '変更', edit_stuff_path(stuff) %>
