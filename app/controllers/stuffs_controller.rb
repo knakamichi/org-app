@@ -43,6 +43,7 @@ class StuffsController < ApplicationController
 
   # PATCH/PUT /stuffs/1
   # PATCH/PUT /stuffs/1.json
+  # see rails tutorial section 14.2.5 for explanation
   def update
     respond_to do |format|
       if @stuff.update(stuff_params)

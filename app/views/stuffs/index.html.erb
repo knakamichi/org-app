@@ -96,7 +96,7 @@
         <td><%= stuff.user_id %></td>
         <td><%= stuff.image %></td>
         <td id="change"><%= link_to '情報変更', edit_stuff_path(stuff) %></td>
-        <td id="destroy"><%= link_to '全体リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td id="destroy"><%= link_to '全体リストから削除', stuff.passive_ownerships.find_by(stuff_id: @stuff_id), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>

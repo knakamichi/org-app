@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629070535) do
+ActiveRecord::Schema.define(version: 20180706014656) do
+
+  create_table "ownerships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "stuff_id"
+    t.index ["stuff_id"], name: "index_ownerships_on_stuff_id"
+    t.index ["user_id", "stuff_id"], name: "index_ownerships_on_user_id_and_stuff_id", unique: true
+    t.index ["user_id"], name: "index_ownerships_on_user_id"
+  end
 
   create_table "stuffs", force: :cascade do |t|
     t.string "name"
@@ -19,20 +27,22 @@ ActiveRecord::Schema.define(version: 20180629070535) do
     t.string "description1"
     t.string "description2"
     t.string "description3"
-    t.integer "user_id"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "description4"
-    t.index ["user_id", "created_at"], name: "index_stuffs_on_user_id_and_created_at"
+    t.string "image"
+    t.index ["description1"], name: "index_stuffs_on_description1"
+    t.index ["description2"], name: "index_stuffs_on_description2"
+    t.index ["description3"], name: "index_stuffs_on_description3"
+    t.index ["description4"], name: "index_stuffs_on_description4"
+    t.index ["name"], name: "index_stuffs_on_name"
+    t.index ["sub_name1"], name: "index_stuffs_on_sub_name1"
+    t.index ["sub_name2"], name: "index_stuffs_on_sub_name2"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.integer "grade"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

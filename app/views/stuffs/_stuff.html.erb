@@ -10,11 +10,11 @@
       <tr><td>道具の説明３</td><td><%= stuff.description3 %></td></tr>
       <tr><td>使用者</td><td><%= stuff.description4 %></td></tr>
       <tr><td>画像</td><td><%= stuff.image %></td></tr>
-      <tr><td>画像</td><td><%= stuff.image %></td></tr>
+      <!-- <tr><td>画像</td><td><%#= stuff.image %></td></tr> -->
   </table>
 </div>
 <div class="menu destroy">
-  <%= link_to 'リストから削除', stuff, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <%= link_to 'リストから削除', current_user.ownership.find_by(:current_user_id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 </div>
 <div class="menu change">
   <%= link_to '変更', edit_stuff_path(stuff) %>

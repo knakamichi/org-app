@@ -8,6 +8,16 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users
-  resources :stuffs
+  resources :users do
+    member do
+      get :owning
+    end
+  end
+  resources :stuffs do
+    member do
+      get :owners
+    end
+  end
+  resources :ownerships,       only: [:create, :destroy]
+
 end
