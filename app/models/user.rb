@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :ownerships, dependent: :destroy
   has_many :stuffs, :through => :ownerships
+  accepts_nested_attributes_for :ownerships
 
   before_save { email.downcase! } # = self.email=email.downcase
   validates :name,  presence: true, length: { maximum: 50 }
@@ -17,17 +18,17 @@ class User < ApplicationRecord
   end
 
     # declares usage of stuff.
-  # def own(stuff)
-  #   owning << stuff
-  # end
-  #
-  # # undeclares usage of stuff
-  # def disown(stuff)
-  #   owning.delete(stuff)
-  # end
-  #
-  # # Returns true if the current user is using the stuff.
-  # def owning?(stuff)
-  #   owning.include?(stuff)
-  # end
+  def own(stuff)
+    @ownership << stuff
+  end
+
+  # undeclares usage of stuff
+  def disown(stuff)
+    @ownership.delete(stuff)
+  end
+
+  # Returns true if the current user is using the stuff.
+  def owning?(stuff)
+    @ownership.include?(stuff)
+  end
 end
