@@ -8,10 +8,10 @@
     <%= render 'layouts/shim' %> <!-- render partials -->
   </head>
   <body>
-    <% unless controller_name == "stuffs" %>
+    <%# unless controller_name == "stuffs" %>
       <%= render 'layouts/header' %>
-    <% end %>
-    <!-- <%= debug(params) if Rails.env.development? %> -->
+    <%# end %>
+    <%#= debug(params) if Rails.env.development? %>
      <!--  restrict showing debug info to dev env.-->
     <div class="container">
       <% flash.each do |message_type, message| %>

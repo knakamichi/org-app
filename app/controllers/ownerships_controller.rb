@@ -6,9 +6,8 @@ class OwnershipsController < ApplicationController
   end
 
   def destroy
-    # debugger
-    # @ownership = Ownership.find(params[:user_id === current_user.id])
-    # current_user.ownership.delete(@ownership)
+    # stuff = Ownership.find(params[:id]).stuff.id
+    # current_user.disown(stuff)
     # # current_userの画面をreloadせずにview で押された操作をする（cf: Twitterのフォロー・アンフォローボタン）
     # respond_to do |format|
     #   format.html { redirect_to @user }

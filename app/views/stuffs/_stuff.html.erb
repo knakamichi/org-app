@@ -19,11 +19,11 @@
     <%#= form_for(@user.ownerships.find_by(user_id: @user.id), html: { method: :delete }, remote: true) do |f| %>
     <!--button works standard rails  -->
     <%= form_for(@user.ownerships.find_by(user_id: @user.id), html: { method: :delete }) do |f| %>
-    <!-- <div class="menu destroy"> -->
+    <div class="menu destroy">
       <%= f.submit "もう使わない", class: "btn" %>
-    <!-- </div> -->
+    </div>
     <% end %>
   <div class="menu change">
-    <%= link_to '変更', edit_stuff_path(stuff_url) %>
+    <%= link_to '変更', edit_stuff_path(stuff.id) %>
   </div>
 <% end %>

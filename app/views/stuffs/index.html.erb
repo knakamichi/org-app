@@ -1,103 +1,86 @@
 <p id="notice"><%= notice %></p>
-
-<header class="navbar navbar-fixed-top">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ヘルプ", help_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "個人ページ", root_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              アカウント <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "設定", "#" %></li>
-              <li>
-                <%= link_to "ログアウト", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
 <h1>団体所有道具一覧</h1>
-<script type="text/javascript" src="Yumi_List.js"></script>
+<script type="text/javascript" src="tablefilter.js"></script>
 <h2>絞り込み検索</h2>
-<th>
-    <select id="sampleSelect" onChange="goFilter();">
-      <option value="all">全て</option>
-      <option value="bow">弓</option>
-      <option value="arrow">矢</option>
-      <option value="gasshuku">合宿関係</option>
-    </select>
-</th>
 <div class="menu new-stuff">
   <%= link_to 'リストに道具を追加する', new_stuff_path %>
 </div>
-<table id="sampleTable" border="1">
-  <tr class="colTitle">
-    <!-- <th>
-        <select id="sampleSelect" onChange="goFilter();">
-          <option value="all">全て</option>
-          <option value="nami">並</option>
-          <option value="nobi">伸</option>
-        </select>
-    </th>
-    <th>
-        <select id="sampleSelect" onChange="goFilter();">
-          <option value="all">全て</option>
-          <option value="9">9kg</option>
-          <option value="10">10kg</option>
-          <option value="11">11kg</option>
-          <option value="12">12kg</option>
-          <option value="13">13kg</option>
-        </select>
-    </th> -->
-  </tr>
-      <!-- <tr nami><td>1</td><td>弓1</td><td>並</td><td>11</td></tr>
-      <tr bow nobi 12><td>2</td><td>弓2</td><td>伸</td><td>12</td></tr>
-      <tr bow nami 11><td>3</td><td>弓3</td><td>並</td><td>11</td></tr>
-      <tr bow nami 10><td>4</td><td>弓4</td><td>並</td><td>10</td></tr>
-      <tr bow nami 13><td>5</td><td>弓5</td><td>伸</td><td>13</td></tr>
-      <tr bow nami 9><td>6</td><td>弓6</td><td>並</td><td>9</td></tr>
-      <tr bow nobi 13><td>7</td><td>弓7</td><td>伸</td><td>13</td></tr>
-      <tr bow nami 12><td>8</td><td>弓8</td><td>並</td><td>12</td></tr>
-</table> -->
+<table id="Table">
 
+    <tr class="colTitle">
+      <th>No.</th>
+      <th>
 
-  <thead>
-    <tr>
-      <th>分類</th>
-      <th>名前</th>
-      <th>名前2</th>
-      <th>道具の説明</th>
-      <th>道具の説明2</th>
-      <th>道具の説明3</th>
-      <th>責任者</th>
-      <th>画像</th>
-      <th colspan="3"></th>
+        <select id="SelectT" onChange="goFilterT();">
+          <option value="all">全て</option>
+          <% @stuffs.each do |stuff| %>
+          <option value="<%= stuff.name %>"><%= stuff.name %></</option>
+          <%end%>
+        </select>
+
+      </th>
+        <!-- <th>
+          <select id="sampleSelectS" onChange="goFilterS();">
+            <option value="all">全て</option>
+            <option value="nami">並</option>
+            <option value="nobi">伸</option>
+          </select>
+        </th>
+        <th>
+          <select id="sampleSelectW" onChange="goFilterW();">
+            <option value="all">全て</option>
+            <option value="w9">9kg</option>
+            <option value="w10">10kg</option>
+            <option value="w11">11kg</option>
+            <option value="w12">12kg</option>
+            <option value="w13">13kg</option>
+          </select>
+        </th> -->
+        <% @stuffs.each do |stuff| %>
+        <!-- <tbody> -->
+            <tr>
+              <td value="<%= stuff.name %>" >
+                <%= stuff.name %>
+              </td>
+              <td value="<%= stuff.sub_name1 %>" >
+                <%= stuff.sub_name1 %>
+              </td>
+              <td value="<%= stuff.sub_name2 %>" >
+                <%= stuff.sub_name2 %>
+              </td>
+              <td value="<%= stuff.description1 %>" >
+                <%= stuff.description1 %>
+              </td>
+              <td value="<%= stuff.description2 %>" >
+                <%= stuff.description2 %>
+              </td>
+              <td value="<%= stuff.description3 %>" >
+                <%= stuff.description3 %>
+              </td>
+            <% stuff.users.each do |user| %>
+              <td value="<%= user.name %>" >
+                <%= user.name %>
+              </td>
+            <% end %>
+              <!-- <td id="destroy"><%#= link_to '全体リストから削除', stuff.id, method: :delete, data: { confirm: '本当に削除しますか？' } %></td> -->
+            </tr>
+            <td id="change"><%= link_to '情報変更', edit_stuff_path(stuff.id) %></td>
+
+        <!-- </tbody> -->
+        <% end %>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @stuffs.each do |stuff| %>
+    <!-- <thead>
       <tr>
-        <td><%= stuff.name %></td>
-        <td><%= stuff.sub_name1 %></td>
-        <td><%= stuff.sub_name2 %></td>
-        <td><%= stuff.description1 %></td>
-        <td><%= stuff.description2 %></td>
-        <td><%= stuff.description3 %></td>
-        <td><%= stuff.user_id %></td>
-        <td><%= stuff.image %></td>
-        <td id="change"><%= link_to '情報変更', edit_stuff_path(stuff) %></td>
-        <td id="destroy"><%= link_to '全体リストから削除', stuff.passive_ownerships.find_by(stuff_id: @stuff_id), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <th>分類</th>
+        <th>名前</th>
+        <th>名前2</th>
+        <th>道具の説明</th>
+        <th>道具の説明2</th>
+        <th>道具の説明3</th>
+        <th>責任者</th>
+        <th>画像</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead> -->
+
 </table>
