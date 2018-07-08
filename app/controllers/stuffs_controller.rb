@@ -76,4 +76,13 @@ class StuffsController < ApplicationController
     def stuff_params
       params.require(:stuff).permit(:name, :sub_name1, :sub_name2, :description1, :description2, :description3, :description4, :user_id, :image)
     end
+
+    def duplicate_values
+      max = self.size
+      self.reverse_each.with_index do |e,i|
+        break if i == max-1 # N-1回比較
+          @dup_values = @dup_values ?  @dup_values & self[i] : self[i] & e
+        end
+      @dup_values
+    end
 end

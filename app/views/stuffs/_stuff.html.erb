@@ -1,21 +1,29 @@
 
   <!-- creates vertical table -->
-<div class="main">
-  <table border="1">
+  <!-- why each do loop?  -->
+<% @user.stuffs.each do |stuff| %>
+  <div class="main">
+    <table border="1">
       <tr><td class="td1">分類</td><td class="td2"><%= stuff.name %></td></tr>
-      <tr><td>名前</td><td><%= stuff.sub_name1 %></td></tr>
+      <tr><td>名前1</td><td><%= stuff.sub_name1 %></td></tr>
       <tr><td>名前２</td><td><%= stuff.sub_name2 %></td></tr>
       <tr><td>道具の説明１</td><td><%= stuff.description1 %></td></tr>
       <tr><td>道具の説明２</td><td><%= stuff.description2 %></td></tr>
       <tr><td>道具の説明３</td><td><%= stuff.description3 %></td></tr>
       <tr><td>使用者</td><td><%= stuff.description4 %></td></tr>
       <tr><td>画像</td><td><%= stuff.image %></td></tr>
-      <!-- <tr><td>画像</td><td><%#= stuff.image %></td></tr> -->
-  </table>
-</div>
-<div class="menu destroy">
-  <%= link_to 'リストから削除', current_user.ownership.find_by(:current_user_id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-</div>
-<div class="menu change">
-  <%= link_to '変更', edit_stuff_path(stuff) %>
-</div>
+
+    </table>
+  </div>
+    <!--button works with ajax  -->
+    <%#= form_for(@user.ownerships.find_by(user_id: @user.id), html: { method: :delete }, remote: true) do |f| %>
+    <!--button works standard rails  -->
+    <%= form_for(@user.ownerships.find_by(user_id: @user.id), html: { method: :delete }) do |f| %>
+    <div class="menu destroy">
+      <%= f.submit "もう使わない", class: "btn" %>
+    </div>
+    <% end %>
+  <div class="menu change">
+    <%= link_to '変更', edit_stuff_path(stuff.id) %>
+  </div>
+<% end %>

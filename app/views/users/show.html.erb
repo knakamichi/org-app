@@ -1,32 +1,24 @@
 <div class="row">
-  <!-- <aside class="col-md-4">
-    <section class="user_info">
-      <h1>ようこそ、<%= @user.name %>さん</h1>
-    </section>
-  </aside> -->
   <div class="col-md-8">
-      <h3>使用道具一覧 (<%= @current_user.ownership.count %>)</h3>
+      <strong id="uses" class="stat">
+        <h3>使用道具一覧 (<%= current_user.ownerships.count %>)</h3>
+      </strong>
       <div class="menu index">
         <%= link_to "道具一覧", stuffs_path %>
       </div>
       <div class="menu new-stuff">
         <%= link_to '道具を追加する', new_stuff_path %>
       </div>
-<<<<<<< HEAD
-      <% if @user.stuffs.any? %>
-=======
-      <% if @user.ownerships.any? %>
->>>>>>> dev
+      <% if current_user.ownerships.any? %>
         <ol class="stuffs">
           <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->
-          <%= render @stuffs %>
+          <%= render "/stuffs/stuff.html.erb" %>
         </ol>
-        <!-- <%= will_paginate @stuffs %> -->
+        <%#= will_paginate @user.ownerships %>
     <%else%>
       <p>使用している道具はありません</p>
     <% end %>
   </div>
 </div>
 
-<!-- <%= gravatar_for @user %> =>元 h1 tag内-->
-<!--  -->
+<!-- <%#= gravatar_for @user %> =>元 h1 tag内-->

@@ -1,0 +1,2 @@
+$("#_stuff").html("<%= escape_javascript(render('users/show')) %>");
+$("#uses").html('<%= current_user.ownerships.count %>');
