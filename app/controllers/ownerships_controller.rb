@@ -1,4 +1,8 @@
 class OwnershipsController < ApplicationController
+
+  def new
+  end
+  
   def create
     @user = User.find(params[:user_id => current_user.id])
     @user.own(stuff)

@@ -1,7 +1,8 @@
 function goFilterT(){
-  var wTable = document.getElementById("sampleTable");
-  var wSelect = document.getElementById("sampleSelectT");
+  var wTable = document.getElementById("Table");
+  var wSelect = document.getElementById("SelectT");
   var value  = wSelect.options[wSelect.selectedIndex ].value;
+  // var valueUTF = 　encodeURIComponent(value)
   // debugger
   if(value == 'all'){
     wTable.className = '';
