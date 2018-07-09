@@ -1,59 +1,62 @@
-<%= form_with(model: stuff, local: true) do |form| %>
-  <% if stuff.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(stuff.errors.count, "error") %> prohibited this stuff from being saved:</h2>
+<div class="form-wrapper">
+  <%= form_with(model: stuff, local: true) do |form| %>
+    <% if stuff.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(stuff.errors.count, "error") %> prohibited this stuff from being saved:</h2>
 
-      <ul>
-      <% stuff.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+        <% stuff.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-item">
+      <%#= form.label :name, "分類（必須）" %>
+      <%= form.text_field :name, id: :stuff_name, placeholder: "分類（必須）" %>
+    </div>
+
+    <div class="form-item">
+      <%#= form.label :sub_name1, "名前" %><p>例：弓の識別名</p>
+      <%= form.text_field :sub_name1, id: :stuff_sub_name1, placeholder: "名前" %>
+    </div>
+
+    <div class="form-item">
+      <%#= form.label :sub_name2, "名前2"%> <p>例：弓種名 </p>
+      <%= form.text_field :sub_name2, id: :stuff_sub_name2, placeholder: "名前２"%>
+    </div>
+
+    <div class="form-item">
+      <%#= form.label :description1, "道具の説明（必須）" %> <p>例：弓 - キロ数、矢 - シャフト・羽色</p>
+      <%= form.text_field :description1, id: :stuff_description1, placeholder: "道具の説明（必須）"%>
+    </div>
+
+    <div class="form-item">
+      <%#= form.label :description2, "道具の説明2" %> <p>例：弓 - 並？伸？、矢 - 矢尺</p>
+      <%= form.text_field :description2, id: :stuff_description2, placeholder: "道具の説明２" %>
+    </div>
+
+    <div class="form-item">
+      <%#= form.label :description3,  "道具の説明3" %> <p>例：弓 - 弓袋・弓巻特徴、矢 - 矢筒特徴</p>
+      <%= form.text_field :description3, id: :stuff_description3, placeholder: "道具の説明3" %>
+    </div>
+
+    <div class="form-item">
+      <% stuff.users.each do |user| %>
+        <%#= form.label :name, "使用者"%>
+        <%= form.text_field :name, id: :user_name, placeholder: "使用者" %>
       <% end %>
-      </ul>
+    </div>
+
+    <!-- <div class="field">
+      <%= form.label :image, "画像"%>
+      <%= form.text_field :image, id: :stuff_image %>
+    </div> -->
+
+    <div class="button-panel">
+      <%= form.submit "追加", class: "btn btn-primary" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name, "分類（必須）" %>
-    <%= form.text_field :name, id: :stuff_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sub_name1, "名前" %><p>例：弓の識別名</p>
-    <%= form.text_field :sub_name1, id: :stuff_sub_name1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sub_name2, "名前2"%> <p>例：弓種名 </p>
-    <%= form.text_field :sub_name2, id: :stuff_sub_name2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description1, "道具の説明（必須）" %> <p>例：弓 - キロ数、矢 - シャフト・羽色</p>
-    <%= form.text_field :description1, id: :stuff_description1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description2, "道具の説明2" %> <p>例：弓 - 並？伸？、矢 - 矢尺</p>
-    <%= form.text_field :description2, id: :stuff_description2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description3,  "道具の説明3" %> <p>例：弓 - 弓袋・弓巻特徴、矢 - 矢筒特徴</p>
-    <%= form.text_field :description3, id: :stuff_description3 %>
-  </div>
-
-  <div class="field">
-    <% stuff.users.each do |user| %>
-      <%= form.label :name, "使用者"%>
-      <%= form.text_field :name, id: :user_name %>
-    <% end %>
-  </div>
-
-  <!-- <div class="field">
-    <%= form.label :image, "画像"%>
-    <%= form.text_field :image, id: :stuff_image %>
-  </div> -->
-
-  <div class="actions">
-    <%= form.submit "追加" %>
-  </div>
-<% end %>
+</div>
