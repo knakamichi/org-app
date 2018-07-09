@@ -12,38 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name, "分類" %>
+    <%= form.label :name, "分類（必須）" %>
     <%= form.text_field :name, id: :stuff_name %>
   </div>
 
   <div class="field">
-    <%= form.label :sub_name1, "名前" %>
+    <%= form.label :sub_name1, "名前" %><p>例：弓の識別名</p>
     <%= form.text_field :sub_name1, id: :stuff_sub_name1 %>
   </div>
 
   <div class="field">
-    <%= form.label :sub_name2, "名前2"%>
+    <%= form.label :sub_name2, "名前2"%> <p>例：弓種名 </p>
     <%= form.text_field :sub_name2, id: :stuff_sub_name2 %>
   </div>
 
   <div class="field">
-    <%= form.label :description1, "道具の説明" %>
+    <%= form.label :description1, "道具の説明（必須）" %> <p>例：弓 - キロ数、矢 - シャフト・羽色</p>
     <%= form.text_field :description1, id: :stuff_description1 %>
   </div>
 
   <div class="field">
-    <%= form.label :description2, "道具の説明2"%>
+    <%= form.label :description2, "道具の説明2" %> <p>例：弓 - 並？伸？、矢 - 矢尺</p>
     <%= form.text_field :description2, id: :stuff_description2 %>
   </div>
 
   <div class="field">
-    <%= form.label :description3,  "道具の説明3" %>
+    <%= form.label :description3,  "道具の説明3" %> <p>例：弓 - 弓袋・弓巻特徴、矢 - 矢筒特徴</p>
     <%= form.text_field :description3, id: :stuff_description3 %>
   </div>
 
   <div class="field">
-    <%= form.label :description4, "道具の説明４"%>
-    <%= form.text_field :description4, id: :stuff_description4 %>
+    <% stuff.users.each do |user| %>
+      <%= form.label :name, "使用者"%>
+      <%= form.text_field :name, id: :user_name %>
+    <% end %>
   </div>
 
   <!-- <div class="field">
