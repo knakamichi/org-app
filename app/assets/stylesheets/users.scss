@@ -27,7 +27,9 @@
   border-radius:10px;
   float: right;
   text-decoration: none;
-
+  input {
+    width: auto;
+  }
   &.index {
     margin-top: 15px;
     display: inline-block;

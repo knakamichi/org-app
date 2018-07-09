@@ -7,8 +7,10 @@
         <%= link_to "道具一覧", stuffs_path %>
       </div>
       <div class="menu new-stuff">
-        <%= link_to '道具を追加する', new_stuff_path %>
+        <%= link_to '新しい道具を追加する', new_stuff_path %>
       </div>
+      <%#= link_to '道具を使う', new_ownerships_path %>
+
       <% if current_user.ownerships.any? %>
         <ol class="stuffs">
           <!--個人の所有物一覧のページ、_stuff.html.erbを表示する  -->

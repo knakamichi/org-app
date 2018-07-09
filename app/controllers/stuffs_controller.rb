@@ -36,8 +36,10 @@ class StuffsController < ApplicationController
       flash[:success] = "道具を追加しました。"
       redirect_to current_user
     else
-      render 'static_pages/home'
-      format.json { render json: @stuff.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @stuff.errors, status: :unprocessable_entity }
+      end
     end
   end
 

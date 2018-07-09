@@ -2,68 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-table {
-  background-color:#afeeee;
-  border:solid 1px black;
-  font-size:25px;
-  width:80%;
-  height:65%;
-  table-layout:fixed;
-  margin:0 auto;
-  margin-top:80px;
-  text-align:center;
-  border-collapse:collapse;
-  #Table {
-    width:300px;
-    th {
-      border : 1px solid #666;
-    }
-    td {
-      border : 1px solid #666;
-    }
-  }
-  .allNoDisplay tr:not(.colTitle) {
-    display: none;
-  }
-}
-
-.td {
-  width:30%;
-}
-
-
-select {
-  width: 100%;
-  padding: 10px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid #999;
-  background: #eee;
-  background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);
-  background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);
-  background-size: 20px, 100%;
-}
-
-// filtering tables
-
-// .bow tr[bow] {
-//   display: table-row;
+// 
+// table {
+//   background-color:#afeeee;
+//   border:solid 1px black;
+//   font-size: 25px;
+//   width: 80%;
+//   height: 80%;
+//   table-layout:fixed;
+//   margin:0 auto;
+//   margin-top:80px;
+//   text-align: center;
+//   border-collapse:collapse;
+//
+//     th {
+//       border : 1px solid #666;
+//       font-size: 25px;
+//     }
+//     td {
+//       border : 1px solid #666;
+//       width: 30%;
+//     }
+//
 // }
-// .arrow tr[arrow] {
-//   display: table-row;
+// .allNoDisplay tr:not(.colTitle, .colFilter) {
+//   display: none;
 // }
-// .gasshuku         tr[gasshuku]          {display: table-row;}
-// .nami         tr[nami]          {display: table-row;}
-// .nobi         tr[nobi]          {display: table-row;}
-// .w9         tr[w9]          {display: table-row;}
-// .w10         tr[w10]          {display: table-row;}
-// .w11         tr[w11]          {display: table-row;}
-// .w12         tr[w12]          {display: table-row;}
-// .w13         tr[w13]          {display: table-row;}
-// .w14         tr[w14]          {display: table-row;}
-// .w15         tr[w15]          {display: table-row;}
-// .w16         tr[w16]          {display: table-row;}
-// .w17         tr[w17]          {display: table-row;}
-// .w18         tr[w18]          {display: table-row;}
+//
+// select {
+//   width: 100%;
+//   padding: 10px;
+//   border: 1px solid #999;
+//   background: #eee;
+//   background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);
+//   background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);
+//   background-size: 20px, 100%;
+// }
